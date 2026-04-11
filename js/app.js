@@ -5,8 +5,8 @@
 ═══════════════════════════════════════════════════ */
 
 // === Paramètres ===
-const POINT_RADIUS_PX   = 4;
-const HIT_RADIUS_PX     = 12;
+const POINT_RADIUS_PX   = 2.5;
+const HIT_RADIUS_PX     = 9;
 const DELETE_TOLERANCE_PX = 18;
 const ZOOM_MIN = 0.25, ZOOM_MAX = 4, ZOOM_STEP = 1.2, WHEEL_SENS = 0.0015;
 
