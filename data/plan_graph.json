@@ -1,0 +1,268 @@
+{
+  "nodes": [
+    {
+      "id": "bureaux_cbc",
+      "name": "Bureaux CBC",
+      "x": 90,
+      "y": 153
+    },
+    {
+      "id": "entree_principale",
+      "name": "Entrée principale",
+      "x": 68,
+      "y": 176
+    },
+    {
+      "id": "bureaux_cot",
+      "name": "Bureaux COT",
+      "x": 162,
+      "y": 142
+    },
+    {
+      "id": "imagerie",
+      "name": "Imagerie",
+      "x": 251,
+      "y": 170
+    },
+    {
+      "id": "bureaux_moe",
+      "name": "Bureaux MOE",
+      "x": 171,
+      "y": 209
+    },
+    {
+      "id": "naissances",
+      "name": "Naissances",
+      "x": 251,
+      "y": 363
+    },
+    {
+      "id": "bop_1",
+      "name": "BOP 1",
+      "x": 312,
+      "y": 351
+    },
+    {
+      "id": "salle_reveil",
+      "name": "Salle réveil",
+      "x": 252,
+      "y": 339
+    },
+    {
+      "id": "lifts",
+      "name": "Lifts",
+      "x": 285,
+      "y": 185
+    },
+    {
+      "id": "acces_etages",
+      "name": "Accès étages",
+      "x": 142,
+      "y": 185
+    },
+    {
+      "id": "bop_2_3",
+      "name": "BOP 2&3",
+      "x": 341,
+      "y": 68
+    },
+    {
+      "id": "bop_4",
+      "name": "BOP 4",
+      "x": 215,
+      "y": 92
+    },
+    {
+      "id": "1",
+      "name": "1",
+      "x": 136,
+      "y": 198,
+      "type": "waypoint"
+    },
+    {
+      "id": "2",
+      "name": "2",
+      "x": 185,
+      "y": 221,
+      "type": "waypoint"
+    },
+    {
+      "id": "3",
+      "name": "3",
+      "x": 184,
+      "y": 291,
+      "type": "waypoint"
+    },
+    {
+      "id": "4",
+      "name": "4",
+      "x": 213,
+      "y": 292,
+      "type": "waypoint"
+    },
+    {
+      "id": "5",
+      "name": "5",
+      "x": 185,
+      "y": 315,
+      "type": "waypoint"
+    },
+    {
+      "id": "6",
+      "name": "6",
+      "x": 210,
+      "y": 314,
+      "type": "waypoint"
+    },
+    {
+      "id": "7",
+      "name": "7",
+      "x": 214,
+      "y": 349,
+      "type": "waypoint"
+    },
+    {
+      "id": "8",
+      "name": "8",
+      "x": 242,
+      "y": 354,
+      "type": "waypoint"
+    },
+    {
+      "id": "9",
+      "name": "9",
+      "x": 307,
+      "y": 373,
+      "type": "waypoint"
+    },
+    {
+      "id": "10",
+      "name": "10",
+      "x": 167,
+      "y": 168,
+      "type": "waypoint"
+    },
+    {
+      "id": "11",
+      "name": "11",
+      "x": 208,
+      "y": 222,
+      "type": "waypoint"
+    },
+    {
+      "id": "12",
+      "name": "12",
+      "x": 210,
+      "y": 194,
+      "type": "waypoint"
+    },
+    {
+      "id": "13",
+      "name": "13",
+      "x": 212,
+      "y": 168,
+      "type": "waypoint"
+    },
+    {
+      "id": "14",
+      "name": "14",
+      "x": 252,
+      "y": 194,
+      "type": "waypoint"
+    },
+    {
+      "id": "point_29",
+      "name": "point_29",
+      "x": 496,
+      "y": 166,
+      "type": "waypoint"
+    }
+  ],
+  "edges": [
+    {
+      "from": "entree_principale",
+      "to": "1"
+    },
+    {
+      "from": "entree_principale",
+      "to": "bureaux_cbc"
+    },
+    {
+      "from": "1",
+      "to": "acces_etages"
+    },
+    {
+      "from": "1",
+      "to": "bureaux_moe"
+    },
+    {
+      "from": "bureaux_moe",
+      "to": "2"
+    },
+    {
+      "from": "2",
+      "to": "3"
+    },
+    {
+      "from": "3",
+      "to": "4"
+    },
+    {
+      "from": "3",
+      "to": "5"
+    },
+    {
+      "from": "5",
+      "to": "6"
+    },
+    {
+      "from": "4",
+      "to": "6"
+    },
+    {
+      "from": "6",
+      "to": "7"
+    },
+    {
+      "from": "salle_reveil",
+      "to": "7"
+    },
+    {
+      "from": "9",
+      "to": "bop_1"
+    },
+    {
+      "from": "acces_etages",
+      "to": "bureaux_cot"
+    },
+    {
+      "from": "2",
+      "to": "11"
+    },
+    {
+      "from": "11",
+      "to": "12"
+    },
+    {
+      "from": "12",
+      "to": "13"
+    },
+    {
+      "from": "12",
+      "to": "14"
+    },
+    {
+      "from": "14",
+      "to": "imagerie"
+    },
+    {
+      "from": "14",
+      "to": "lifts"
+    }
+  ],
+  "meta": {
+    "planW": 577,
+    "planH": 623,
+    "scale_m_per_unit": 0.15364425591947514
+  }
+}

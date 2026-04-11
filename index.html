@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>NavInt — Navigation intérieure</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0f1e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════ -->
+  <header id="appHeader">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2L18 7V13L10 18L2 13V7L10 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <circle cx="10" cy="10" r="2.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <span class="brand-name">NavInt</span>
+      </div>
+      <div class="header-actions">
+        <span id="modeBadge" class="mode-badge">Navigation</span>
+        <button id="editModeBtn" class="btn-icon" title="Mode édition">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════
+       MAIN LAYOUT
+  ═══════════════════════════════════════ -->
+  <div class="app-layout">
+
+    <!-- MAP STAGE -->
+    <main class="map-stage" id="mapStage">
+      <div id="plan-container">
+        <div id="viewport">
+          <div id="camera">
+            <div id="plan-image"></div>
+            <svg id="scene">
+              <defs>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#ff4d6d"/>
+                </marker>
+              </defs>
+              <g id="edges-layer"></g>
+              <g id="path-layer"></g>
+              <g id="points-layer"></g>
+              <line id="edge-highlight" class="edge-hover" style="display:none;" x1="0" y1="0" x2="0" y2="0"></line>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zoom Controls -->
+      <div class="zoom-ui">
+        <button id="zoomInBtn" class="zoom-btn" title="Zoom avant">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="zoom-divider"></div>
+        <span class="zoom-label" id="zoomLabel">100%</span>
+        <div class="zoom-divider"></div>
+        <button id="zoomOutBtn" class="zoom-btn" title="Zoom arrière">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="zoom-divider"></div>
+        <button id="zoomResetBtn" class="zoom-btn" title="Réinitialiser">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        </button>
+      </div>
+    </main>
+
+    <!-- BOTTOM PANEL -->
+    <aside class="bottom-panel" id="bottomPanel">
+
+      <!-- Drag handle -->
+      <div class="drag-handle" id="dragHandle">
+        <div class="handle-bar"></div>
+      </div>
+
+      <!-- NAVIGATION TAB (default) -->
+      <div class="panel-section" id="nav-panel">
+
+        <div class="panel-header">
+          <h2 class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            Itinéraire
+          </h2>
+        </div>
+
+        <div class="route-inputs">
+          <div class="input-group">
+            <div class="input-dot dot-start"></div>
+            <div class="input-wrap">
+              <label class="input-label">Départ</label>
+              <select id="startSelect" class="route-select">
+                <option value="">Choisir un point...</option>
+              </select>
+            </div>
+          </div>
+          <div class="route-connector">
+            <div class="connector-line"></div>
+            <button class="swap-btn" id="swapBtn" title="Inverser départ/arrivée">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 16V4m0 0L3 8m4-4l4 4"/><path d="M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+            </button>
+          </div>
+          <div class="input-group">
+            <div class="input-dot dot-end"></div>
+            <div class="input-wrap">
+              <label class="input-label">Arrivée</label>
+              <select id="endSelect" class="route-select">
+                <option value="">Choisir un point...</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button id="computeRoute" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          Calculer l'itinéraire
+        </button>
+
+        <!-- Résultat itinéraire -->
+        <div id="route-result" class="route-result hidden">
+          <div class="result-header">
+            <div id="routeDistance" class="result-distance">—</div>
+            <button class="btn-clear" id="clearRouteBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+          <ol id="routeSteps" class="route-steps"></ol>
+        </div>
+
+      </div>
+
+      <!-- ÉDITION PANEL (hidden by default) -->
+      <div class="panel-section edit-only hidden" id="edit-panel">
+        <div class="panel-header">
+          <h2 class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Mode Édition
+          </h2>
+          <span class="edit-badge">ADMIN</span>
+        </div>
+
+        <div class="edit-row">
+          <input id="poiName" type="text" placeholder="Nom du point (vide = waypoint auto)" class="edit-input" />
+          <p class="edit-hint">Nommé → POI (destination) · Vide ou <code>point_</code> → Waypoint (passage)</p>
+        </div>
+
+        <!-- Bloc type de point -->
+        <div class="waypoint-section">
+          <div class="waypoint-row">
+            <button id="toggleWaypointType" class="btn-edit edit-button">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+              Basculer POI ↔ Waypoint
+            </button>
+            <button id="toggleWaypointsVisibility" class="btn-edit edit-button active">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              Waypoints visibles
+            </button>
+          </div>
+        </div>
+
+        <div class="edit-actions">
+          <button id="toggleEdgeMode" class="btn-edit edit-button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            Couloir
+          </button>
+          <button id="toggleDeleteEdgeMode" class="btn-edit edit-button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Gomme
+          </button>
+          <button id="deleteSelectedPoint" class="btn-edit edit-button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Point sél.
+          </button>
+          <button id="deleteLastPoint" class="btn-edit edit-button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 10 4 15 9 20"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></svg>
+            Dernier pt
+          </button>
+        </div>
+
+        <div class="edit-actions">
+          <button id="deleteLastEdge" class="btn-edit edit-button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 10 4 15 9 20"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></svg>
+            Dernier couloir
+          </button>
+          <button id="clearAllEdges" class="btn-edit btn-danger edit-button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+            Tout effacer
+          </button>
+        </div>
+
+        <div class="scale-section edit-button">
+          <div class="scale-label-row">
+            <span class="section-label">Échelle</span>
+            <span id="scaleLabel" class="scale-value">Non définie</span>
+          </div>
+          <div class="edit-actions">
+            <input id="scaleDistance" type="number" min="0" step="0.01" placeholder="Distance (m)" class="edit-input flex-1" />
+            <button id="defineScaleBtn" class="btn-edit edit-button">Définir</button>
+          </div>
+        </div>
+
+        <div class="import-export edit-button">
+          <button id="exportJson" class="btn-edit edit-button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Exporter JSON
+          </button>
+          <label class="btn-edit edit-button btn-file" for="importFile">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Importer
+            <input id="importFile" type="file" accept=".json" style="display:none">
+          </label>
+          <button id="importBtn" class="btn-edit edit-button">OK</button>
+        </div>
+
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- Toast notification -->
+  <div id="toast" class="toast"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
