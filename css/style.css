@@ -243,10 +243,10 @@ html, body {
   fill: #fff;
   paint-order: stroke;
   stroke: rgba(8,12,26,.9);
-  stroke-width: 3;
+  stroke-width: 2.5;
   stroke-linejoin: round;
   font-family: var(--font);
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 600;
   dominant-baseline: middle;
   pointer-events: none;
