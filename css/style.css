@@ -842,4 +842,91 @@ html, body {
   .toast {
     bottom: 24px;
   }
+
+  .floor-buttons { gap: 6px; }
+  .floor-btn { padding: 5px 14px; font-size: 13px; }
+}
+
+/* ─── Boutons d'étage ────────────────────────── */
+.floor-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.floor-btn {
+  padding: 5px 12px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  color: var(--ink-muted);
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.floor-btn:hover {
+  background: var(--cyan-dim);
+  border-color: rgba(0,212,255,.25);
+  color: var(--cyan);
+}
+
+.floor-btn.active {
+  background: linear-gradient(135deg, #0066ff 0%, var(--cyan) 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(0,100,255,.3);
+}
+
+/* ─── Connecteur inter-étage (SVG) ───────────── */
+.poi-node.connector circle.base {
+  fill: var(--amber);
+  stroke: var(--bg);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 4px rgba(255,184,48,.5));
+}
+.poi-node.connector circle.halo {
+  stroke: var(--amber);
+}
+.poi-node.connector.on-path circle.base {
+  fill: var(--rose);
+}
+
+/* ─── Étapes changement d'étage ─────────────── */
+.route-steps li.step-floor {
+  background: rgba(255,184,48,.07);
+  border: 1px solid rgba(255,184,48,.2);
+  border-radius: var(--radius-sm);
+  color: var(--amber);
+  font-weight: 600;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 4px 0;
+  padding: 8px 12px;
+}
+
+.route-steps li.step-floor::before { display: none; }
+
+.step-floor-btn {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  background: rgba(255,184,48,.15);
+  border: 1px solid rgba(255,184,48,.3);
+  border-radius: var(--radius-full);
+  color: var(--amber);
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.step-floor-btn:hover {
+  background: rgba(255,184,48,.28);
 }
