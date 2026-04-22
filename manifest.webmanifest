@@ -1,22 +1,18 @@
 {
-  "name": "Wayfinding Bâtiment",
-  "short_name": "Wayfinding",
-  "description": "Itinéraires et repérage dans le bâtiment",
-  "start_url": "./index.html",
-  "scope": "./",
+  "name": "NavInt — Navigation intérieure",
+  "short_name": "NavInt",
+  "description": "Application de guidage intérieur",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0b5fff",
+  "background_color": "#080c1a",
+  "theme_color": "#0a0f1e",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "assets/icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "assets/icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
