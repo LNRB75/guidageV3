@@ -1,0 +1,379 @@
+{
+  "nodes": [
+    {
+      "id": "bureaux_cbc",
+      "name": "Bureaux CBC",
+      "x": 90,
+      "y": 153
+    },
+    {
+      "id": "bureaux_cot",
+      "name": "Bureaux COT",
+      "x": 162,
+      "y": 142
+    },
+    {
+      "id": "imagerie",
+      "name": "Imagerie",
+      "x": 251,
+      "y": 170
+    },
+    {
+      "id": "naissances",
+      "name": "Naissances",
+      "x": 251,
+      "y": 363
+    },
+    {
+      "id": "bop_1",
+      "name": "BOP 1",
+      "x": 312,
+      "y": 351
+    },
+    {
+      "id": "salle_reveil",
+      "name": "Salle réveil",
+      "x": 252,
+      "y": 339
+    },
+    {
+      "id": "bop_2_3",
+      "name": "BOP 2&3",
+      "x": 341,
+      "y": 68
+    },
+    {
+      "id": "bop_4",
+      "name": "BOP 4",
+      "x": 215,
+      "y": 92
+    },
+    {
+      "id": "2",
+      "name": "2",
+      "x": 185,
+      "y": 221,
+      "type": "waypoint"
+    },
+    {
+      "id": "3",
+      "name": "3",
+      "x": 184,
+      "y": 291,
+      "type": "waypoint"
+    },
+    {
+      "id": "6",
+      "name": "6",
+      "x": 210,
+      "y": 314,
+      "type": "waypoint"
+    },
+    {
+      "id": "9",
+      "name": "9",
+      "x": 307,
+      "y": 373,
+      "type": "waypoint"
+    },
+    {
+      "id": "10",
+      "name": "10",
+      "x": 167,
+      "y": 168,
+      "type": "waypoint"
+    },
+    {
+      "id": "12",
+      "name": "12",
+      "x": 210,
+      "y": 194,
+      "type": "waypoint"
+    },
+    {
+      "id": "13",
+      "name": "13",
+      "x": 212,
+      "y": 168,
+      "type": "waypoint"
+    },
+    {
+      "id": "14",
+      "name": "14",
+      "x": 252,
+      "y": 194,
+      "type": "waypoint"
+    },
+    {
+      "id": "point_25",
+      "name": "point_25",
+      "x": 88,
+      "y": 173,
+      "type": "waypoint"
+    },
+    {
+      "id": "point_26",
+      "name": "point_26",
+      "x": 143,
+      "y": 193,
+      "type": "waypoint"
+    },
+    {
+      "id": "point_27_2",
+      "name": "point_27",
+      "x": 185,
+      "y": 203,
+      "type": "waypoint"
+    },
+    {
+      "id": "bureaux_maternite",
+      "name": "Bureaux maternité",
+      "x": 186,
+      "y": 266,
+      "type": "poi"
+    },
+    {
+      "id": "etages",
+      "name": "Etages",
+      "x": 145,
+      "y": 169,
+      "type": "poi"
+    },
+    {
+      "id": "point_29",
+      "name": "point_29",
+      "x": 163,
+      "y": 187,
+      "type": "waypoint"
+    },
+    {
+      "id": "point_30",
+      "name": "point_30",
+      "x": 162,
+      "y": 121,
+      "type": "waypoint"
+    },
+    {
+      "id": "point_31",
+      "name": "point_31",
+      "x": 143,
+      "y": 99,
+      "type": "waypoint"
+    },
+    {
+      "id": "point_32",
+      "name": "point_32",
+      "x": 148,
+      "y": 121,
+      "type": "waypoint"
+    },
+    {
+      "id": "point_33",
+      "name": "point_33",
+      "x": 210,
+      "y": 79,
+      "type": "waypoint"
+    },
+    {
+      "id": "point_34",
+      "name": "point_34",
+      "x": 165,
+      "y": 203,
+      "type": "waypoint"
+    },
+    {
+      "id": "point_33_2",
+      "name": "point_33",
+      "x": 250,
+      "y": 351,
+      "type": "waypoint"
+    },
+    {
+      "id": "point_33_3",
+      "name": "point_33",
+      "x": 209,
+      "y": 350,
+      "type": "waypoint"
+    },
+    {
+      "id": "point_34_2",
+      "name": "point_34",
+      "x": 259,
+      "y": 372,
+      "type": "waypoint"
+    },
+    {
+      "id": "point_34_3",
+      "name": "point_34",
+      "x": 209,
+      "y": 292,
+      "type": "waypoint"
+    },
+    {
+      "id": "point_34_4",
+      "name": "point_34",
+      "x": 210,
+      "y": 222,
+      "type": "waypoint"
+    },
+    {
+      "id": "lifts",
+      "name": "Lifts",
+      "x": 272,
+      "y": 194,
+      "type": "poi"
+    },
+    {
+      "id": "point_35",
+      "name": "point_35",
+      "x": 170,
+      "y": 218,
+      "type": "waypoint"
+    },
+    {
+      "id": "infra",
+      "name": "Infra",
+      "x": 158,
+      "y": 174,
+      "type": "connector",
+      "linkedTo": "F0__escalier_3"
+    }
+  ],
+  "edges": [
+    {
+      "from": "2",
+      "to": "3"
+    },
+    {
+      "from": "9",
+      "to": "bop_1"
+    },
+    {
+      "from": "12",
+      "to": "13"
+    },
+    {
+      "from": "12",
+      "to": "14"
+    },
+    {
+      "from": "14",
+      "to": "imagerie"
+    },
+    {
+      "from": "point_25",
+      "to": "bureaux_cbc"
+    },
+    {
+      "from": "point_25",
+      "to": "point_26"
+    },
+    {
+      "from": "etages",
+      "to": "point_26"
+    },
+    {
+      "from": "point_29",
+      "to": "point_26"
+    },
+    {
+      "from": "point_29",
+      "to": "bureaux_cot"
+    },
+    {
+      "from": "point_29",
+      "to": "10"
+    },
+    {
+      "from": "10",
+      "to": "13"
+    },
+    {
+      "from": "13",
+      "to": "imagerie"
+    },
+    {
+      "from": "point_30",
+      "to": "point_32"
+    },
+    {
+      "from": "point_32",
+      "to": "point_31"
+    },
+    {
+      "from": "point_31",
+      "to": "point_33"
+    },
+    {
+      "from": "point_33",
+      "to": "bop_4"
+    },
+    {
+      "from": "point_26",
+      "to": "point_34"
+    },
+    {
+      "from": "point_34",
+      "to": "point_27_2"
+    },
+    {
+      "from": "point_27_2",
+      "to": "2"
+    },
+    {
+      "from": "point_33_3",
+      "to": "6"
+    },
+    {
+      "from": "point_33_3",
+      "to": "point_33_2"
+    },
+    {
+      "from": "point_33_2",
+      "to": "salle_reveil"
+    },
+    {
+      "from": "point_33_2",
+      "to": "naissances"
+    },
+    {
+      "from": "point_34_3",
+      "to": "3"
+    },
+    {
+      "from": "point_34_3",
+      "to": "6"
+    },
+    {
+      "from": "point_34_4",
+      "to": "point_34_3"
+    },
+    {
+      "from": "12",
+      "to": "point_34_4"
+    },
+    {
+      "from": "lifts",
+      "to": "14"
+    },
+    {
+      "from": "naissances",
+      "to": "point_34_2"
+    },
+    {
+      "from": "9",
+      "to": "point_34_2"
+    },
+    {
+      "from": "point_29",
+      "to": "infra"
+    }
+  ],
+  "meta": {
+    "planW": 577,
+    "planH": 623,
+    "scale_m_per_unit": 0.15364425591947514,
+    "label": "RDCH",
+    "planSrc": "assets/plan_1.png"
+  }
+}
